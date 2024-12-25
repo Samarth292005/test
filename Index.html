@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Locator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Locator</h1>
+    <p>Enter a category code to find the product details.</p>
+    <input type="text" id="categoryCode" placeholder="Enter Category Code">
+    <button onclick="navigateToDetails()">Search</button>
+    <p class="error" id="errorMessage"></p>
+
+    <script>
+        const inventory = {
+            A123: { name: "Storage Tank", price: 2500, image: "storage_tank.jpg" },
+            B456: { name: "Water Pump", price: 4500, image: "water_pump.jpg" },
+            C789: { name: "Pipe Fittings", price: 750, image: "pipe_fittings.jpg" }
+        };
+
+        function navigateToDetails() {
+            const categoryCode = document.getElementById("categoryCode").value.trim();
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (categoryCode && inventory[categoryCode]) {
+                // Redirect to product details page with category code as a query parameter
+                window.location.href = `details.html?code=${categoryCode}`;
+            } else {
+                errorMessage.textContent = "Invalid category code. Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>
