@@ -3,67 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Locator</title>
+    <title>PCS Infragold - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #6b8e23);
             color: #333;
-            text-align: center;
-            padding: 20px;
         }
-        input[type="text"] {
-            width: 300px;
-            padding: 10px;
-            margin: 20px auto;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #2c3e50;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            width: 120px;
+            height: auto;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero section styles */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('hero-bg.jpg') no-repeat center center/cover;
+            color: white;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: #e74c3c;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #0056b3;
+
+        .hero button:hover {
+            background-color: #c0392b;
         }
-        .error {
-            color: red;
-            font-size: 14px;
+
+        /* Footer styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Product Locator</h1>
-    <p>Enter a category code to find the product details.</p>
-    <input type="text" id="categoryCode" placeholder="Enter Category Code">
-    <button onclick="navigateToDetails()">Search</button>
-    <p class="error" id="errorMessage"></p>
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="pcs-logo.png" alt="PCS Logo">
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
 
-    <script>
-        const inventory = {
-            A123: { name: "Storage Tank", price: 2500, image: "storage_tank.jpg" },
-            B456: { name: "Water Pump", price: 4500, image: "water_pump.jpg" },
-            C789: { name: "Pipe Fittings", price: 750, image: "pipe_fittings.jpg" }
-        };
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to PCS Infragold</h1>
+        <p>Your one-stop solution for premium infrastructure products.</p>
+        <button onclick="location.href='products.html'">Explore Products</button>
+    </div>
 
-        function navigateToDetails() {
-            const categoryCode = document.getElementById("categoryCode").value.trim();
-            const errorMessage = document.getElementById("errorMessage");
-
-            if (categoryCode && inventory[categoryCode]) {
-                // Redirect to product details page with category code as a query parameter
-                window.location.href = `details.html?code=${categoryCode}`;
-            } else {
-                errorMessage.textContent = "Invalid category code. Please try again.";
-            }
-        }
-    </script>
+    <!-- Footer -->
+    <footer>
+        © 2024 PCS Infragold. All rights reserved. | <a href="privacy.html">Privacy Policy</a>
+    </footer>
 </body>
 </html>
